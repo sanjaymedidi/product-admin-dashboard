@@ -34,9 +34,10 @@ export default function LoginPage() {
 
       // Go to products page after successful login
       router.push('/products')
-    } catch {
-      setError('Invalid username or password')
-    } finally {
+    } catch (error) {
+  console.error('Login error:', error)
+  setError('Login failed. Please check your username and password.')
+}finally {
       setIsLoading(false)
     }
   }
